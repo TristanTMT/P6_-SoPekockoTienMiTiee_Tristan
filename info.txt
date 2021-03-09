@@ -1,0 +1,34 @@
+cd backend
+npm init // initialise le projet, créer un fichier package.json qui enregistre les packages/dépendances
+git init //
+.gitignore node_modules
+mkdir server.js
+node server.js localhost:3000
+npm install -g nodemon
+npm install --save express
+npm install --save body-parser
+npm install --save mongoose
+npm install --save mongoose-unique-validator
+npm install --save bcrypt
+npm install --save jsonwebtoken // crée des TOKEN et les vérifies
+npm install --save multer // implémente des téléchargements de fichiers pour que les utilisateurs puissent télécharger des images d'articles à vendre
+npm install --save helmet // protége l'application de certaines des vulnérabilités XSS scripts dans les cookies
+
+email à masquer
+un autre utilisateurs ne peut modifier les sauces des autres utilisateurs
+
+cd FRONTEND
+npm install -g @angular/cli@7.0.2 // version 7.0.2
+ng --version
+npm install node-sass@4.14.1 // version 4.14.1
+npm install
+ng serve
+
+
+
+
+
+
+Partie Sauce Controllers | Models | Routes
+
+Cours Passez au Full stack avec Node.js, Express et MongoDB > Créez des tokens d'authentification
