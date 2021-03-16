@@ -4,19 +4,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 // Importer le Schéma des données utilisateurs 
 const User = require('../models/User');
-// Importer le module crypto pour has l'email
-const cryptojs = require('crypto-js/hmac-md5');
 
 // Infrastructure nécessaire à nos routes d'authentification
 
 // Créer un utilisateur et l'enregistrer dans la BDD, en renvoyant une réponse de réussite en cas de succès, et des erreurs avec le code d'erreur en cas d'échec
 exports.signup = (req, res, next) => {
-  // crypter l'adresse mail avec crypto
-  const hashEmail = cryptojs(req.body.email, "SecretKeyForSoPekockoUsers").toString();
     bcrypt.hash(req.body.password, 10) //Hash, crypt un MDP
       .then(hash => {
         const user = new User({
-          email: hashEmail,
+          email: req.body.email,
           password: hash
         });
         user.save()
@@ -27,9 +23,7 @@ exports.signup = (req, res, next) => {
   };
 
   exports.login = (req, res, next) => {
-    // crypter l'adresse mail avec crypto
-    const hashEmail = cryptojs(req.body.email, "SecretKeyForSoPekockoUsers").toString();
-    User.findOne({ email: hashEmail }) /* findOne() fonction asychrone Trouver un seul utilisateur dans la BDD */
+    User.findOne({ email: req.body.email }) /* findOne() fonction asychrone Trouver un seul utilisateur dans la BDD */
       .then(user => {
         if (!user) {
           return res.status(401).json({ error: 'Utilisateur non trouvé !' });
