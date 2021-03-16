@@ -28,3 +28,6 @@ Procédure
 5. Exécuter npm install
 6. Exécuter ng serve
 7. Exécution de l’API sur http://localhost:4200.
+
+![P6_GIF](https://user-images.githubusercontent.com/57182040/111271302-71ce9d00-864a-11eb-9a93-c26a5514655d.gif)
+
